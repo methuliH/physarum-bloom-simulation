@@ -1,4 +1,4 @@
-<h1 align="center">Generative Art Game</h1>
+<h1 align="center">Physarum Bloom Simulation</h1>
 <p align="center">A slime mold simulation built with Pygame and NumPy - agents sense, follow trails, and paint emergent organic patterns in real time.</p>
 
 [![Python](https://img.shields.io/badge/python-3.14-blue)](https://www.python.org/)
