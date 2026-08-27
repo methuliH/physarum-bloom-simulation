@@ -1,4 +1,4 @@
-<h1 align="center">Generative Art Game</h1>
+<h1 align="center">Physarum Bloom Simulation</h1>
 <p align="center">A slime mold simulation built with Pygame and NumPy - agents sense, follow trails, and paint emergent organic patterns in real time.</p>
 
 [![Python](https://img.shields.io/badge/python-3.14-blue)](https://www.python.org/)
@@ -6,6 +6,11 @@
 ## Description
 
 This project simulates slime mold behaviour using thousands of autonomous agents moving across a 2D grid. Each agent deposits a chemical trail, senses the trail ahead of it, and steers toward stronger concentrations - causing the swarm to self-organise into vein-like, branching structures. The simulation is developed incrementally across several goal files, each adding a new layer of behaviour or visual effect.
+<img width="800" height="630" alt="image" src="https://github.com/user-attachments/assets/3aa2648a-0d31-48c5-8a33-64cdc014b3f2" />
+<img width="793" height="625" alt="image" src="https://github.com/user-attachments/assets/504fa213-86d9-4546-a6da-2c4dd876b19d" />
+
+
+
 
 ## Features
 
