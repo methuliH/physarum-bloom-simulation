@@ -64,6 +64,11 @@ python prism_iris.py
 |-----|--------|
 | `UP` arrow | Increase gamma by 0.1 |
 | `DOWN` arrow | Decrease gamma by 0.1 |
+| `RIGHT` arrow | Increase radial strength by 0.005 |
+| `LEFT` arrow | Decrease radial strength by 0.005 (minimum 0) |
+| `SPACE` | Pause / resume |
+| `R` | Reset agents and clear the trail |
+| `S` | Save a screenshot as `bloom_<timestamp>.png` |
 | Close window | Quit |
 
 The current gamma and radial strength are shown in the top-left corner of the window.

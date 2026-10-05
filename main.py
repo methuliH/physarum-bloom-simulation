@@ -1,6 +1,7 @@
 import pygame
 import numpy as np
 import sys
+import time
 from scipy.ndimage import uniform_filter
 
 pygame.init()
@@ -47,6 +48,8 @@ RADIAL_STRENGTH = 0.02   # how strongly agents get pulled toward radiating outwa
 font = pygame.font.SysFont("monospace", 16)
 
 gamma = 1.0
+radial_strength = RADIAL_STRENGTH
+paused = False
 
 running = True
 while running:
@@ -58,6 +61,26 @@ while running:
                 gamma = round(gamma + 0.1, 1)
             elif event.key == pygame.K_DOWN:
                 gamma = round(gamma - 0.1, 1)
+            elif event.key == pygame.K_RIGHT:
+                radial_strength = round(radial_strength + 0.005, 3)
+            elif event.key == pygame.K_LEFT:
+                radial_strength = max(0.0, round(radial_strength - 0.005, 3))
+            elif event.key == pygame.K_SPACE:
+                paused = not paused
+            elif event.key == pygame.K_r:
+                x = np.random.uniform(0, WIDTH, N)
+                y = np.random.uniform(0, HEIGHT, N)
+                angle = np.random.uniform(0, 2 * np.pi, N)
+                trail[:] = 0
+                age[:] = 0
+            elif event.key == pygame.K_s:
+                pygame.image.save(screen, f"bloom_{time.strftime('%Y%m%d_%H%M%S')}.png")
+
+    if paused:
+        screen.blit(font.render("PAUSED", True, (200, 200, 200)), (10, 30))
+        pygame.display.flip()
+        clock.tick(60)
+        continue
 
     center_angle = angle
     left_angle = angle + SENSOR_ANGLE
@@ -101,7 +124,7 @@ while running:
     diff = (diff + np.pi) % (2 * np.pi) - np.pi
 
     # nudge angle a small fraction of the way toward outward_angle each frame
-    radial_bias = diff * RADIAL_STRENGTH
+    radial_bias = diff * radial_strength
 
     angle = angle + turn + wiggle + radial_bias
 
@@ -135,7 +158,7 @@ while running:
     rgb_array = (hue * t[..., np.newaxis]).astype(np.uint8)
     pygame.surfarray.blit_array(screen, rgb_array)
 
-    label = font.render(f"gamma: {gamma:.1f}  radial: {RADIAL_STRENGTH:.3f}  (UP/DOWN gamma)", True, (200, 200, 200))
+    label = font.render(f"gamma: {gamma:.1f}  radial: {radial_strength:.3f}", True, (200, 200, 200))
     screen.blit(label, (10, 10))
 
     pygame.display.flip()
