@@ -1,23 +1,22 @@
-from turtle import *
-from colorsys import *
+import turtle as t
+from colorsys import hsv_to_rgb
 
 # popup window
-setup(800,725)
-speed(0.6)
-tracer(20)
-bgcolor("black")
+t.setup(800, 725)
+t.tracer(20)
+t.bgcolor("black")
 
 
-h = 10
+h = 0
 for i in range(360):
-    c = hsv_to_rgb(h,1,1)
-    color (c)
+    c = hsv_to_rgb(h, 1, 1)
+    t.color(c)
     h += 0.005
-    circle(150)
-    circle (10)
-    circle(30)
-    circle(60)
-    left(2)
-    dot(20)
-    left(10)
-done()
+    t.circle(150)
+    t.circle(10)
+    t.circle(30)
+    t.circle(60)
+    t.left(2)
+    t.dot(20)
+    t.left(10)
+t.done()
