@@ -77,6 +77,8 @@ The current gamma and radial strength are shown in the top-left corner of the wi
 
 `prism_iris.py` is a separate generative graphic built with Python's built-in `turtle` and `colorsys` modules. On a black background it draws 360 rotated sets of concentric circles and dots, stepping the hue slightly each iteration (`hsv_to_rgb`) to produce a glowing rainbow colour wheel. It needs no extra packages beyond a Python install with Tkinter; close the window to exit.
 
+<img width="600" alt="Prism Iris output" src="assets/prism_iris.png" />
+
 ## Project Structure
 
 ```
