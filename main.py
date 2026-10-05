@@ -35,8 +35,6 @@ PALETTE = np.array([
     [245, 226, 206],   # oldest 
 ], dtype=np.float32)
 
-BG_COLOR = np.array([245, 226, 206], dtype=np.float32)  # background
-
 SENSOR_DIST = 15.0
 SENSOR_ANGLE = 0.5
 TURN_SPEED = 0.1
