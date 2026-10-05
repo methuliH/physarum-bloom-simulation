@@ -8,7 +8,7 @@ pygame.init()
 
 WIDTH, HEIGHT = 800, 600
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
-pygame.display.set_caption("Radial Bloom")
+pygame.display.set_caption("Physarum Bloom Simulation")
 
 clock = pygame.time.Clock()
 
