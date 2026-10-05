@@ -5,7 +5,7 @@
 
 ## Description
 
-This project simulates slime mold behaviour using thousands of autonomous agents moving across a 2D grid. Each agent deposits a chemical trail, senses the trail ahead of it, and steers toward stronger concentrations - causing the swarm to self-organise into vein-like, branching structures. The simulation is developed incrementally across several goal files, each adding a new layer of behaviour or visual effect.
+This project simulates slime mold behaviour using thousands of autonomous agents moving across a 2D grid. Each agent deposits a chemical trail, senses the trail ahead of it, and steers toward stronger concentrations - causing the swarm to self-organise into vein-like, branching structures. The repo also includes **Prism Iris**, a small turtle-graphics rainbow colour wheel.
 <img width="800" height="630" alt="image" src="https://github.com/user-attachments/assets/3aa2648a-0d31-48c5-8a33-64cdc014b3f2" />
 <img width="793" height="625" alt="image" src="https://github.com/user-attachments/assets/504fa213-86d9-4546-a6da-2c4dd876b19d" />
 
@@ -28,6 +28,7 @@ This project simulates slime mold behaviour using thousands of autonomous agents
 | Simulation | NumPy (vectorised agent arrays) |
 | Rendering | Pygame / pygame-ce |
 | Image processing | SciPy (`uniform_filter` blur) |
+| Prism Iris graphic | `turtle` + `colorsys` (standard library) |
 | Language | Python 3.14 |
 
 ## Getting Started
@@ -47,23 +48,17 @@ pip install pygame-ce numpy scipy
 
 ## Usage
 
-Each file is a self-contained simulation. Run any of them directly:
+The repo contains two standalone scripts:
 
 ```bash
-# Bare agents with random walk
+# Physarum slime mold simulation with radial bloom
 python main.py
 
-# Agents with trail deposit and decay
-python goal2.py
-
-# Sensing, turning, blur, age-based colour, and gamma control
-python goal3.py
-
-# Sensing and turning (clean reference version)
-python goal4.py
+# Prism Iris - rainbow colour-wheel graphic drawn with turtle
+python prism_iris.py
 ```
 
-### Controls (goal3.py)
+### Controls (main.py)
 
 | Key | Action |
 |-----|--------|
@@ -71,17 +66,22 @@ python goal4.py
 | `DOWN` arrow | Decrease gamma by 0.1 |
 | Close window | Quit |
 
+The current gamma and radial strength are shown in the top-left corner of the window.
+
+## Prism Iris
+
+`prism_iris.py` is a separate generative graphic built with Python's built-in `turtle` and `colorsys` modules. On a black background it draws 360 rotated sets of concentric circles and dots, stepping the hue slightly each iteration (`hsv_to_rgb`) to produce a glowing rainbow colour wheel. It needs no extra packages beyond a Python install with Tkinter; close the window to exit.
+
 ## Project Structure
 
 ```
-generative_art_game/
-├── main.py      # Step 1: random-walk agents, no trail
-├── goal2.py     # Step 2: trail deposit, decay, grayscale render
-├── goal4.py     # Step 3: three-sensor steering
-└── goal3.py     # Step 4: blur, age array, 4-colour palette, gamma, radial bloom
+physarum-bloom-simulation/
+├── main.py         # Slime mold sim: sensing, steering, blur, age-based colour, gamma, radial bloom
+├── prism_iris.py   # Rainbow colour-wheel graphic using turtle
+└── README.md
 ```
 
-## Key Parameters (goal3.py)
+## Key Parameters (main.py)
 
 | Parameter | Default | Effect |
 |-----------|---------|--------|
@@ -94,4 +94,5 @@ generative_art_game/
 | `AGE_MAX` | 100.0 | Maximum age value before clipping |
 | `SENSOR_DIST` | 15.0 | How far ahead sensors look (pixels) |
 | `SENSOR_ANGLE` | 0.5 | Left/right sensor offset (radians) |
+| `TURN_SPEED` | 0.1 | How sharply agents steer toward the strongest trail (radians/frame) |
 | `RADIAL_STRENGTH` | 0.02 | Outward bias from screen centre |
