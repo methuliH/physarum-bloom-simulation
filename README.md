@@ -41,7 +41,7 @@ This project simulates slime mold behaviour using thousands of autonomous agents
 ### Installation
 
 ```bash
-pip install pygame-ce numpy scipy
+pip install -r requirements.txt
 ```
 
 > Note: use `pygame-ce` (community edition) instead of `pygame` - the standard `pygame` package does not build on Python 3.14.
@@ -78,6 +78,7 @@ The current gamma and radial strength are shown in the top-left corner of the wi
 physarum-bloom-simulation/
 ├── main.py         # Slime mold sim: sensing, steering, blur, age-based colour, gamma, radial bloom
 ├── prism_iris.py   # Rainbow colour-wheel graphic using turtle
+├── requirements.txt
 └── README.md
 ```
 
