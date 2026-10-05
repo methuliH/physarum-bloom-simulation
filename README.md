@@ -96,3 +96,7 @@ physarum-bloom-simulation/
 | `SENSOR_ANGLE` | 0.5 | Left/right sensor offset (radians) |
 | `TURN_SPEED` | 0.1 | How sharply agents steer toward the strongest trail (radians/frame) |
 | `RADIAL_STRENGTH` | 0.02 | Outward bias from screen centre |
+
+## License
+
+Released under the [MIT License](LICENSE).
